@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhysicsObject : MonoBehaviour
+public class PhysicsObject : Hittable
 {
 
     public float minGroundNormalY = .65f;
@@ -28,8 +28,9 @@ public class PhysicsObject : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
@@ -39,6 +40,7 @@ public class PhysicsObject : MonoBehaviour
 
     public virtual void Update()
     {
+        base.Update();
         targetVelocity = Vector2.zero;
         ComputeVelocity();
         ComputeMovement();

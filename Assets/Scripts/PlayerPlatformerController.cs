@@ -11,11 +11,35 @@ public class PlayerPlatformerController : PhysicsObject
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
+    public float coolDown=0.2f;
+    private float shootStart=-100;
+    public GameObject prefabBullet;
+    public Transform bulletStart;
+    public Transform bulletHolder;
+
     // Use this for initialization
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
+        if (Time.time - shootStart < coolDown) return;
+        shootStart = Time.time;
+        var bullet=GameObject.Instantiate(prefabBullet, bulletStart.position, bulletStart.rotation).GetComponent<Bullet>();
+        bullet.transform.SetParent(bulletHolder);
     }
 
     public override void ComputeVelocity()
