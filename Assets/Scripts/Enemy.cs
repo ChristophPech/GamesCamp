@@ -9,12 +9,22 @@ public class Enemy : Hittable
     bool MovementActive = true;
     private float timeDied;
     public float Speed = 2f;
+    public int Collision_Count = 0;
 
     public enum MoveType
     {
         Straight,
         Sine,
     }
+
+    [Range(0, 100f)]
+    public float Frequency;
+
+    [Range(0, 1f)]
+    public float Phase;
+
+    [Range(1, 100f)]
+    public float Amplitude;
 
     public MoveType moveType = MoveType.Straight;
 
@@ -60,6 +70,19 @@ public class Enemy : Hittable
             //rb.AddForce(-transform.right);
             rb.velocity = (-transform.right) * Speed;
         }
+        if (moveType == MoveType.Sine)
+        {
+            //rb.AddForce(-transform.right);
+            float x = (Time.time + (Phase*Mathf.PI*2)) * Frequency;
+            float sin = Mathf.Sin(x);
+            //Debug.Log("x:" + x + " sin:" + sin);
+            rb.velocity = (-transform.right) * Speed + (sin  * Vector3.up * Amplitude);
+        }
+    }
+
+    public void Patterns()
+    {
+
     }
 
     public override void Die()
