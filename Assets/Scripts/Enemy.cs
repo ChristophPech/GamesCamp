@@ -7,8 +7,16 @@ public class Enemy : Hittable
 {
     private Rigidbody2D rb;
     bool MovementActive = true;
-
+    private float timeDied;
     public float Speed = 2f;
+
+    public enum MoveType
+    {
+        Straight,
+        Sine,
+    }
+
+    public MoveType moveType = MoveType.Straight;
 
     // Use this for initialization
     public override void Start()
@@ -28,6 +36,8 @@ public class Enemy : Hittable
     {
         base.FixedUpdate();
         Movement();
+
+        if(timeDied!=0&&Time.time- timeDied > 5) Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D info)
@@ -41,7 +51,11 @@ public class Enemy : Hittable
     //Movement 
     public void Movement()
     {
-        if (MovementActive == true)
+        if (MovementActive == false) return;
+
+        if (transform.position.x < -20) Die();
+
+        if(moveType == MoveType.Straight)
         {
             //rb.AddForce(-transform.right);
             rb.velocity = (-transform.right) * Speed * Time.fixedDeltaTime;
@@ -51,6 +65,7 @@ public class Enemy : Hittable
     public override void Die()
     {
         MovementActive = false;
+        timeDied = Time.time;
         //Destroy(gameObject);
     }
 }
