@@ -5,9 +5,16 @@ using UnityEngine.UI;
 
 public class Enemy : Hittable
 {
+    private Rigidbody2D rb;
+    bool MovementActive = true;
+
+    public float Speed = 100f;
+
     // Use this for initialization
     public override void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        hitPointsMax = 1;
         base.Start();
     }
 
@@ -17,10 +24,32 @@ public class Enemy : Hittable
         base.Update();
     }
 
+    public void FixedUpdate()
+    {
+        Movement();
+    }
+
     void OnCollisionEnter2D(Collision2D info)
     {
         Debug.Log("hit:"+ info.relativeVelocity);
         Rigidbody2D rb =GetComponent<Rigidbody2D>();
-        rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
+        TakeDamage(1);
+        //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
+    }
+
+    //Movement 
+    public void Movement()
+    {
+        if (MovementActive == true)
+        {
+            //rb.AddForce(-transform.right);
+            rb.velocity = (-transform.right) * Speed;
+        }
+    }
+
+    public override void Die()
+    {
+        MovementActive = false;
+        //Destroy(gameObject);
     }
 }
