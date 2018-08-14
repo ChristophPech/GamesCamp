@@ -47,7 +47,11 @@ public class Enemy : Hittable
         base.FixedUpdate();
         Movement();
 
-        if(timeDied!=0&&Time.time- timeDied > 5) Destroy(gameObject);
+        if (timeDied != 0 && Time.time - timeDied > 5)
+        {
+            Destroy(gameObject);
+            Debug.Log("Enemy destroyed.");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D info)
@@ -61,7 +65,10 @@ public class Enemy : Hittable
     //Movement 
     public void Movement()
     {
-        if (MovementActive == false) return;
+        if (MovementActive == false) {
+            //rb.AddForce(-Vector3.right * 2.0f);
+            return;
+        }
 
         if (transform.position.x < -20) Die();
 
