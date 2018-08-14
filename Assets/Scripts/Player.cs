@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
             Vector3 velocity=newPos - transform.position;
             transform.position = newPos;
 
-            GetComponent<Rigidbody2D>().velocity = velocity;
+            GetComponent<Rigidbody2D>().velocity = velocity*(1.0f/Time.deltaTime);
             //Debug.Log(distance);
         }
 
