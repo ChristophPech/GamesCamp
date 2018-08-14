@@ -58,7 +58,7 @@ public class Enemy : Hittable
         if(moveType == MoveType.Straight)
         {
             //rb.AddForce(-transform.right);
-            rb.velocity = (-transform.right) * Speed * Time.fixedDeltaTime;
+            rb.velocity = (-transform.right) * Speed;
         }
     }
 
