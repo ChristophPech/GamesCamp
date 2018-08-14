@@ -8,7 +8,7 @@ public class Enemy : Hittable
     private Rigidbody2D rb;
     bool MovementActive = true;
 
-    public float Speed = 100f;
+    public float Speed = 2f;
 
     // Use this for initialization
     public override void Start()
@@ -24,8 +24,9 @@ public class Enemy : Hittable
         base.Update();
     }
 
-    public void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         Movement();
     }
 
@@ -43,7 +44,7 @@ public class Enemy : Hittable
         if (MovementActive == true)
         {
             //rb.AddForce(-transform.right);
-            rb.velocity = (-transform.right) * Speed;
+            rb.velocity = (-transform.right) * Speed * Time.fixedDeltaTime;
         }
     }
 
