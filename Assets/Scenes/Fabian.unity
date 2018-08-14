@@ -505,4 +505,5 @@ MonoBehaviour:
   hitPointsMax: 1
   hitPointsCur: 0
   prefabHPBar: {fileID: 0}
-  Speed: 1
+  Speed: 4
+  moveType: 0

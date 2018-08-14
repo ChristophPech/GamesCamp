@@ -36,7 +36,8 @@ public class Hittable : MonoBehaviour {
 
     public virtual bool TakeDamage(int damage)
     {
-        hitPointsCur -= damage;
+        if (hitPointsCur < 0) return false;
+            hitPointsCur -= damage;
         if (hitPointsCur < 0) hitPointsCur = 0;
 
         if (hpbar != null) {
