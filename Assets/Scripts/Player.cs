@@ -32,8 +32,11 @@ public class Player : MonoBehaviour {
             rayWorldPosition.z = 0;
             //transform.position = rayWorldPosition;
 
-            transform.position = transform.position * (1.0f- MouseSpeed) + rayWorldPosition * MouseSpeed;
+            Vector3 newPos = transform.position * (1.0f- MouseSpeed) + rayWorldPosition * MouseSpeed;
+            Vector3 velocity=newPos - transform.position;
+            transform.position = newPos;
 
+            GetComponent<Rigidbody2D>().velocity = velocity;
             //Debug.Log(distance);
         }
 
