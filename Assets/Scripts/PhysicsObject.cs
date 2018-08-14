@@ -38,7 +38,7 @@ public class PhysicsObject : Hittable
         grounded = false;
     }
 
-    public virtual void Update()
+    public override void Update()
     {
         base.Update();
         targetVelocity = Vector2.zero;
