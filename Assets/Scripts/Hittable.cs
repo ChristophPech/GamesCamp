@@ -11,6 +11,8 @@ public class Hittable : MonoBehaviour {
     public GameObject prefabHPBar;
     public Slider hpBar;
 
+    public bool isDead = false;
+
     // Use this for initialization
     public virtual void Start () {
         hitPointsCur = hitPointsMax;
@@ -51,6 +53,7 @@ public class Hittable : MonoBehaviour {
 
     public virtual void Die()
     {
+        isDead = true;
         Destroy(gameObject);
         if (hpBar != null) hpBar.gameObject.SetActive(false);
     }

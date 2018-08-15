@@ -13,6 +13,8 @@ public class Boss : Hittable {
     private bool phaseFire;
     private float phaseStart;
 
+    public Player player;
+
     // Use this for initialization
     public override void Start () {
         hitPointsMax = 6;
@@ -90,5 +92,11 @@ public class Boss : Hittable {
         }
         //TakeDamage(1);
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
+    }
+
+    public override void Die()
+    {
+        player.BossDied();
+        base.Die();
     }
 }

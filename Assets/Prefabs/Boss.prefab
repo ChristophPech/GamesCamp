@@ -324,6 +324,7 @@ MonoBehaviour:
   hitPointsCur: 0
   prefabHPBar: {fileID: 0}
   hpBar: {fileID: 0}
+  isDead: 0
   durationFire: 10
   durationOpen: 3
   prefabBullet: {fileID: 114027363376330564, guid: 7b11e0a90d293314eb8d3e6711584057,

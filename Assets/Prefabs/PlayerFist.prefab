@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043978903883864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4188614718484362}
@@ -443,6 +443,9 @@ MonoBehaviour:
   ver: 0
   KeySpeed: 0
   MouseSpeed: 0.2
+  prefabBoss: {fileID: 114916489260055416, guid: cde7aaa7fad03954da19daa3620f47ff,
+    type: 2}
+  hpBarBoss: {fileID: 0}
   moveType: 0
 --- !u!114 &114263311591122952
 MonoBehaviour:
@@ -455,6 +458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf010d83b4a4a74689bb8343c23a702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPointsMax: 8
+  hitPointsCur: 0
+  prefabHPBar: {fileID: 0}
+  hpBar: {fileID: 0}
+  isDead: 0
   rb: {fileID: 0}
 --- !u!212 &212361725430290566
 SpriteRenderer:

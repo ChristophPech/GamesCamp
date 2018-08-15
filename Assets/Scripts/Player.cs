@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class Player : MonoBehaviour {
     public float KeySpeed = 0;
     [Range(0, 0.5f)]
     public float MouseSpeed = 0.2f;
+
+    public Boss prefabBoss;
+    private Boss bossEntity;
+    public Slider hpBarBoss;
 
     private Rigidbody2D rb;
     private Ship ship;
@@ -28,7 +33,7 @@ public class Player : MonoBehaviour {
         Debug.Log("Player - Start");
         rb = GetComponent<Rigidbody2D>();
         moveType = MoveType.Normal;
-
+        hpBarBoss.gameObject.SetActive(false);
         ship = FindObjectOfType<Ship>();
     }
 	
@@ -44,6 +49,28 @@ public class Player : MonoBehaviour {
 
         if (moveType == MoveType.Normal) MoveBody(rb);
         if (moveType == MoveType.Boss) MoveBody(ship.rb);
+
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            SpawnBoss();
+        }
+    }
+
+    public void BossDied()
+    {
+        bossEntity = null;
+        moveType = MoveType.Normal;
+    }
+
+    void SpawnBoss()
+    {
+        if (bossEntity != null) return;
+        bossEntity = Instantiate(prefabBoss, new Vector3(6, 0, 0), Quaternion.identity).GetComponent<Boss>();
+        bossEntity.hpBar = hpBarBoss;
+        bossEntity.player = this;
+        moveType = MoveType.Boss;
+        ship.rb.angularVelocity = 0;
     }
 
     public void MoveBody(Rigidbody2D rb)
