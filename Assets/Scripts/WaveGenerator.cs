@@ -50,8 +50,8 @@ public class WaveGenerator : MonoBehaviour {
         Wave w0 = waves[0];
         Wave w1 = waves[1];
         Wave w2 = waves[2];
-       // Wave w3 = waves[3];
-       // Wave w4 = waves[4];
+        Wave w3 = waves[3];
+        Wave w4 = waves[4];
 
         if(Input.GetKeyDown("1")){
             SpawnWave(w0);
@@ -64,15 +64,15 @@ public class WaveGenerator : MonoBehaviour {
         {
             SpawnWave(w2);
         }
-       // if(Input.GetKeyDown("4"))
-       // {
-       //     SpawnWave(w3);
-       // }
-       // if(Input.GetKeyDown("5"))
-       // {
-       //     SpawnWave(w4);
-       // }
-    }
+        if(Input.GetKeyDown("4"))
+        {
+            SpawnWave(w3);
+        }
+        if(Input.GetKeyDown("5"))
+        {
+            SpawnWave(w4);
+        } 
+    } 
 
     public void SpawnWave(Wave w)
     {
