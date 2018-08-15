@@ -18,6 +18,7 @@ public class Enemy : Hittable
         Sine,
         BreakDown,
         BreakUp,
+        Accelerate,
     }
 
     [Range(0, 100f)]
@@ -135,6 +136,20 @@ public class Enemy : Hittable
             {
                 rb.velocity = (-transform.right) * Speed;
             }
+
+        }
+        if (moveType == MoveType.Accelerate)
+        {
+            if (transform.position.x > 5)
+            {
+                rb.velocity = (-transform.right) * Speed;
+            }
+            else if (transform.position.x < 5)
+            {
+                rb.velocity = (-transform.right) * Speed * 2;
+            }
+
+
         }
     }
 
