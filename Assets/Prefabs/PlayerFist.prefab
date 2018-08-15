@@ -446,6 +446,7 @@ MonoBehaviour:
   prefabBoss: {fileID: 114916489260055416, guid: cde7aaa7fad03954da19daa3620f47ff,
     type: 2}
   hpBarBoss: {fileID: 0}
+  chargeBar: {fileID: 0}
   moveType: 0
 --- !u!114 &114263311591122952
 MonoBehaviour:

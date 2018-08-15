@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
     public Boss prefabBoss;
     private Boss bossEntity;
     public Slider hpBarBoss;
+    public Slider chargeBar;
+    public Text scoreText;
 
     private Rigidbody2D rb;
     private Ship ship;
