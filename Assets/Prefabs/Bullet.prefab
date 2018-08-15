@@ -111,6 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22831a42ed093b1498818d3b75ea5d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPointsMax: 8
+  hitPointsCur: 0
+  prefabHPBar: {fileID: 0}
+  hpBar: {fileID: 0}
   speed: 10
   lifeTime: 3
+  damage: 1
   startTime: 0

@@ -18,12 +18,18 @@ public class Bullet : Hittable {
     void OnTriggerEnter2D(Collider2D other)
     {
         Enemy e=other.transform.GetComponent<Enemy>();
-        if(e!=null)
+        Ship s = other.transform.GetComponent<Ship>();
+        if (e!=null)
         {
             Debug.Log("Hit:" + e);
             e.TakeDamage(damage);
-            Die();
         }
+        if (s != null)
+        {
+            Debug.Log("Hit:" + e);
+            s.TakeDamage(damage);
+        }
+        Die();
     }
 
     // Update is called once per frame

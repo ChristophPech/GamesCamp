@@ -9,21 +9,22 @@ public class Hittable : MonoBehaviour {
     public int hitPointsCur = 0;
 
     public GameObject prefabHPBar;
-    private Slider hpbar;
+    public Slider hpBar;
 
     // Use this for initialization
     public virtual void Start () {
         hitPointsCur = hitPointsMax;
         
         if (prefabHPBar != null) Instantiate(prefabHPBar, transform);
+        if (hpBar != null) hpBar.gameObject.SetActive(true);
 
-        if (hpbar == null) hpbar =GetComponentInChildren<Slider>();
-        if (hpbar != null)
+        if (hpBar == null) hpBar = GetComponentInChildren<Slider>();
+        if (hpBar != null)
         {
-            hpbar.maxValue = hitPointsMax;
-            hpbar.minValue = 0;
-            hpbar.wholeNumbers = true;
-            hpbar.value = hitPointsCur;
+            hpBar.maxValue = hitPointsMax;
+            hpBar.minValue = 0;
+            hpBar.wholeNumbers = true;
+            hpBar.value = hitPointsCur;
         }
     }
 
@@ -40,8 +41,8 @@ public class Hittable : MonoBehaviour {
             hitPointsCur -= damage;
         if (hitPointsCur < 0) hitPointsCur = 0;
 
-        if (hpbar != null) {
-            hpbar.value = hitPointsCur;
+        if (hpBar != null) {
+            hpBar.value = hitPointsCur;
         }
 
         if (hitPointsCur <= 0) { Die(); return false; }
@@ -51,5 +52,6 @@ public class Hittable : MonoBehaviour {
     public virtual void Die()
     {
         Destroy(gameObject);
+        if (hpBar != null) hpBar.gameObject.SetActive(false);
     }
 }
