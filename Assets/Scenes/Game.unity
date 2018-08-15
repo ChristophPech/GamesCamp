@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -331,6 +331,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &364825331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114962577956030556, guid: d008fbb27420fac44ab46626b9644b00,
+    type: 2}
+  m_PrefabInternal: {fileID: 1647536149}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &488770793
 Prefab:
   m_ObjectHideFlags: 0
@@ -1279,7 +1285,7 @@ Prefab:
         type: 2}
       propertyPath: hpBarBoss
       value: 
-      objectReference: {fileID: 1647536150}
+      objectReference: {fileID: 364825331}
     - target: {fileID: 114193946913478138, guid: bfb772c17b3ad6049b8f8060fb838db8,
         type: 2}
       propertyPath: scoreText

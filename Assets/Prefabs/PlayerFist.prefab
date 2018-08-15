@@ -447,6 +447,7 @@ MonoBehaviour:
     type: 2}
   hpBarBoss: {fileID: 0}
   chargeBar: {fileID: 0}
+  scoreText: {fileID: 0}
   moveType: 0
 --- !u!114 &114263311591122952
 MonoBehaviour:

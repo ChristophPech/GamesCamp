@@ -35,13 +35,13 @@ public class Player : MonoBehaviour {
     void Start () {
         Debug.Log("Player - Start");
         rb = GetComponent<Rigidbody2D>();
-        moveType = MoveType.Normal;
-        hpBarBoss.gameObject.SetActive(false);
         ship = FindObjectOfType<Ship>();
+
+        NormalMode();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate() {
+
+    // Update is called once per frame
+    void FixedUpdate() {
 
         //hor = Input.GetAxis("Horizontal");
         //ver = Input.GetAxis("Vertical");
@@ -66,10 +66,21 @@ public class Player : MonoBehaviour {
 
     }
 
+    public void NormalMode()
+    {
+        moveType = MoveType.Normal;
+        chargeBar.minValue = 0;
+        chargeBar.maxValue = 10;
+        chargeBar.wholeNumbers = true;
+        chargeBar.value = 0;
+        chargeBar.gameObject.SetActive(true);
+        hpBarBoss.gameObject.SetActive(false);
+    }
+
     public void BossDied()
     {
         bossEntity = null;
-        moveType = MoveType.Normal;
+        NormalMode();
     }
 
     void SpawnBoss()
@@ -80,6 +91,9 @@ public class Player : MonoBehaviour {
         bossEntity.player = this;
         moveType = MoveType.Boss;
         ship.rb.angularVelocity = 0;
+
+        chargeBar.gameObject.SetActive(false);
+        hpBarBoss.gameObject.SetActive(true);
     }
 
     public void MoveBody(Rigidbody2D rb)
