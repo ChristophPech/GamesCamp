@@ -81,6 +81,9 @@ public class Player : MonoBehaviour {
         chargeBar.value = 0;
         chargeBar.gameObject.SetActive(true);
         hpBarBoss.gameObject.SetActive(false);
+
+        rb.angularVelocity = 0;
+        rb.rotation = 0;
     }
 
     public void BossDied()
