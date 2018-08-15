@@ -66,6 +66,12 @@ public class Player : MonoBehaviour {
 
     }
 
+    public void Charge()
+    {
+        chargeBar.value += 1;
+        if (chargeBar.value >= chargeBar.maxValue) SpawnBoss();
+    }
+
     public void NormalMode()
     {
         moveType = MoveType.Normal;

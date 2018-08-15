@@ -145,6 +145,7 @@ public class Enemy : Hittable
     {
         MovementActive = false;
         timeDied = Time.time;
+        FindObjectOfType<Player>().Charge();
         //Destroy(gameObject);
     }
 }
