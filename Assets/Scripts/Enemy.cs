@@ -73,8 +73,11 @@ public class Enemy : Hittable
     void OnCollisionEnter2D(Collision2D info)
     {
         Debug.Log("hit:"+ info.relativeVelocity);
-        Rigidbody2D rb =GetComponent<Rigidbody2D>();
-        GetHit();
+        Player p=info.transform.GetComponent<Player>();
+        if(p!=null)
+        {
+            GetHit();
+        }
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
     }
 
