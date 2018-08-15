@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     private Ship ship;
     private int score;
+    private Transform skybox;
 
     public enum MoveType
     {
@@ -38,12 +39,18 @@ public class Player : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         ship = FindObjectOfType<Ship>();
         score = 0;
+        skybox = GameObject.Find("Skybox").transform;
         NormalMode();
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        if (moveType == MoveType.Normal)
+        {
+            skybox.Rotate(Vector3.forward, -Time.deltaTime*12f);
+        }
+    }
     void FixedUpdate() {
-
         //hor = Input.GetAxis("Horizontal");
         //ver = Input.GetAxis("Vertical");
         //transform.position += new Vector3(hor, ver) * Time.deltaTime * KeySpeed;
