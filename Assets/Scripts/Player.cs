@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
 
     private Rigidbody2D rb;
     private Ship ship;
+    private int score;
 
     public enum MoveType
     {
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour {
         Debug.Log("Player - Start");
         rb = GetComponent<Rigidbody2D>();
         ship = FindObjectOfType<Ship>();
-
+        score = 0;
         NormalMode();
     }
 
@@ -64,12 +65,14 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene("Menu");
         }
 
+        scoreText.text = "" + score;
     }
 
     public void Charge()
     {
         chargeBar.value += 1;
         if (chargeBar.value >= chargeBar.maxValue) SpawnBoss();
+        score++;
     }
 
     public void NormalMode()

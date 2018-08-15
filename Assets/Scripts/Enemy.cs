@@ -74,12 +74,29 @@ public class Enemy : Hittable
     {
         Debug.Log("hit:"+ info.relativeVelocity);
         Rigidbody2D rb =GetComponent<Rigidbody2D>();
-        if (!TakeDamage(1)) {
+        GetHit();
+        //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Ship s = other.transform.GetComponent<Ship>();
+        Debug.Log("trigger:" + s);
+
+        if (s != null)
+        {
+            GetHit();
+            s.TakeDamage(1);
+        }
+    }
+
+    void GetHit()
+    {
+        Collision_Count++;
+        if (!TakeDamage(1))
+        {
             FindObjectOfType<Player>().Charge();
         }
-
-        Collision_Count++;
-        //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
     }
 
     //Movement 
