@@ -86,7 +86,7 @@ public class Player : MonoBehaviour {
     {
         moveType = MoveType.Normal;
         chargeBar.minValue = 0;
-        chargeBar.maxValue = 10;
+        chargeBar.maxValue = 30;
         chargeBar.wholeNumbers = true;
         chargeBar.value = 0;
         chargeBar.gameObject.SetActive(true);

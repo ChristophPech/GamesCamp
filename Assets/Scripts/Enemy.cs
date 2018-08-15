@@ -127,11 +127,12 @@ public class Enemy : Hittable
         }
         if (moveType == MoveType.BreakDown)
         {
-            if (transform.position.x > 0)
+            Debug.Log(transform.position.x);
+            if (transform.position.x > 5)
             {
                 rb.velocity = (-transform.right) * Speed;
             }
-            else if (transform.position.x < 0 && transform.position.y == 0)
+            else if (transform.position.x < 5 && transform.position.y == 0)
             {
                 rb.velocity = (-transform.up) * Speed;
             }
@@ -144,11 +145,11 @@ public class Enemy : Hittable
         }
         if (moveType == MoveType.BreakUp)
         {
-            if (transform.position.x > 0)
+            if (transform.position.x > 5)
             {
                 rb.velocity = (-transform.right) * Speed;
             }
-            else if (transform.position.x < 0 && transform.position.y == 0)
+            else if (transform.position.x < 5 && transform.position.y == 0)
             {
                 rb.velocity = (transform.up) * Speed;
             }
