@@ -97,9 +97,9 @@ public class Enemy : Hittable
         if (moveType == MoveType.Sine)
         {
             //rb.AddForce(-transform.right);
-            float x = (Time.time + (Phase*Mathf.PI*2)) * Frequency;
+            float x = (Time.time * Frequency) + (Phase * Mathf.PI * 2);
             float sin = Mathf.Sin(x);
-            //Debug.Log("x:" + x + " sin:" + sin);
+            //Debug.Log(name+" x:" + x + " sin:" + sin);
             rb.velocity = (-transform.right) * Speed + (sin  * Vector3.up * Amplitude);
         }
         if (moveType == MoveType.BreakDown)
