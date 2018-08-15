@@ -8,6 +8,7 @@ public class Enemy : Hittable
     private Rigidbody2D rb;
     bool MovementActive = true;
     private float timeDied;
+    public bool StrongEnemy = false;
     public float Speed = 2f;
     public int Collision_Count = 0;
 
@@ -48,7 +49,12 @@ public class Enemy : Hittable
         Movement();
         
         // Wird ausgeführt wenn ein Enemy drei weitere Enemys beruehrt hat (nur auf Probe)
-        if(Collision_Count == 3)
+        if(StrongEnemy == true && Collision_Count == 3)
+        {
+            Destroy(gameObject);
+        }
+
+        if (StrongEnemy == false && Collision_Count ==1)
         {
             Destroy(gameObject);
         }
