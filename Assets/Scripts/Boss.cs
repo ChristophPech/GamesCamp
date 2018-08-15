@@ -58,10 +58,23 @@ public class Boss : Hittable {
 
                 Bullet b=Instantiate(prefabBullet, transform.position + new Vector3(-1, 0, 0), Quaternion.identity).GetComponent<Bullet>();
 
+
                 float t = Time.time - phaseStart;
                 float y = Mathf.Sin(t)*0.8f;
                 //Debug.Log("->"+t+" "+y);
                 b.transform.forward = new Vector3(-1, y);
+
+                b = Instantiate(prefabBullet, transform.position + new Vector3(1, 0, 0), Quaternion.identity).GetComponent<Bullet>();
+
+                b.transform.forward = new Vector3(1, -y);
+
+                b = Instantiate(prefabBullet, transform.position + new Vector3(0, 3, 0), Quaternion.identity).GetComponent<Bullet>();
+
+                b.transform.forward = new Vector3(0, 3);
+
+                b = Instantiate(prefabBullet, transform.position + new Vector3(0, -3, 0), Quaternion.identity).GetComponent<Bullet>();
+
+                b.transform.forward = new Vector3(0, -3);
             }
         }
     }
