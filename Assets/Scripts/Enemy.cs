@@ -73,7 +73,9 @@ public class Enemy : Hittable
     {
         Debug.Log("hit:"+ info.relativeVelocity);
         Rigidbody2D rb =GetComponent<Rigidbody2D>();
-        TakeDamage(1);
+        if (!TakeDamage(1)) {
+            FindObjectOfType<Player>().Charge();
+        }
 
         Collision_Count++;
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
@@ -145,7 +147,6 @@ public class Enemy : Hittable
     {
         MovementActive = false;
         timeDied = Time.time;
-        FindObjectOfType<Player>().Charge();
         //Destroy(gameObject);
     }
 }
