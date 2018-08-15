@@ -46,12 +46,19 @@ public class Enemy : Hittable
     {
         base.FixedUpdate();
         Movement();
-
+        
+        // Wird ausgeführt wenn ein Enemy drei weitere Enemys beruehrt hat (nur auf Probe)
+        if(Collision_Count == 3)
+        {
+            Destroy(gameObject);
+        }
+        
         if (timeDied != 0 && Time.time - timeDied > 5)
         {
             Destroy(gameObject);
             Debug.Log("Enemy destroyed.");
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D info)
@@ -59,6 +66,8 @@ public class Enemy : Hittable
         Debug.Log("hit:"+ info.relativeVelocity);
         Rigidbody2D rb =GetComponent<Rigidbody2D>();
         TakeDamage(1);
+
+        Collision_Count++;
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
     }
 
