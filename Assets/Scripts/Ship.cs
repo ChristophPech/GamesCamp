@@ -30,9 +30,9 @@ public class Ship : Hittable {
     {
         Enemy e = other.transform.GetComponent<Enemy>();
         Boss b = other.transform.GetComponent<Boss>();
+        Obstacle o = other.transform.GetComponent<Obstacle>();
 
-
-        if(b==null) {return;}
+        if (b==null&&o==null) {return;}
         Debug.Log("trigger:" + e + " " + b);
 
         if (Time.time-timeHit<0.5f)
