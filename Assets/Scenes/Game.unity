@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -631,11 +631,16 @@ Prefab:
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Amplitude
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
+        type: 2}
+      propertyPath: Phase
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1332,12 +1337,12 @@ Prefab:
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Amplitude
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Phase
-      value: 0.4
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
@@ -1722,12 +1727,12 @@ Prefab:
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Amplitude
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Phase
-      value: 0.2
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
@@ -2465,12 +2470,12 @@ Prefab:
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Amplitude
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Phase
-      value: 0.3
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
@@ -2673,12 +2678,12 @@ Prefab:
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Amplitude
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
       propertyPath: Phase
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 114510398204958698, guid: 0f856f9c133b8f34088faf97773440e9,
         type: 2}
