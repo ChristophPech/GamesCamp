@@ -16,6 +16,8 @@ public class Enemy : Hittable
     {
         Straight,
         Sine,
+        BreakDown,
+        BreakUp,
     }
 
     [Range(0, 100f)]
@@ -48,7 +50,7 @@ public class Enemy : Hittable
         base.FixedUpdate();
         Movement();
         
-        // Wird ausgeführt wenn ein Enemy drei weitere Enemys beruehrt hat (nur auf Probe)
+        // Wird ausgeführt wenn ein Enemy drei weitere Enemies beruehrt hat (nur auf Probe)
         if(StrongEnemy == true && Collision_Count == 3)
         {
             Destroy(gameObject);
@@ -99,6 +101,38 @@ public class Enemy : Hittable
             float sin = Mathf.Sin(x);
             //Debug.Log("x:" + x + " sin:" + sin);
             rb.velocity = (-transform.right) * Speed + (sin  * Vector3.up * Amplitude);
+        }
+        if (moveType == MoveType.BreakDown)
+        {
+            if (transform.position.x > 0)
+            {
+                rb.velocity = (-transform.right) * Speed;
+            }
+            else if (transform.position.x < 0 && transform.position.y == 0)
+            {
+                rb.velocity = (-transform.up) * Speed;
+            }
+            else if (transform.position.y < -2)
+            {
+                rb.velocity = (-transform.right) * Speed;
+            }
+
+            //Debug.Log(transform.position.y);
+        }
+        if (moveType == MoveType.BreakUp)
+        {
+            if (transform.position.x > 0)
+            {
+                rb.velocity = (-transform.right) * Speed;
+            }
+            else if (transform.position.x < 0 && transform.position.y == 0)
+            {
+                rb.velocity = (transform.up) * Speed;
+            }
+            else if (transform.position.y > 2)
+            {
+                rb.velocity = (-transform.right) * Speed;
+            }
         }
     }
 
