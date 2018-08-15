@@ -53,6 +53,8 @@ public class WaveGenerator : MonoBehaviour {
         Wave w3 = waves[3];
         Wave w4 = waves[4];
         Wave w5 = waves[5];
+        Wave w6 = waves[6];
+        Wave w7 = waves[7];
 
         if(Input.GetKeyDown("1")){
             SpawnWave(w0);
@@ -76,6 +78,14 @@ public class WaveGenerator : MonoBehaviour {
         if(Input.GetKeyDown("6"))
         {
             SpawnWave(w5);
+        }
+        if (Input.GetKeyDown("7"))
+        {
+            SpawnWave(w6);
+        }
+        if (Input.GetKeyDown("8"))
+        {
+            SpawnWave(w7);
         }
 
     } 
