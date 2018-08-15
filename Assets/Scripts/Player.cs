@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     void Start () {
         Debug.Log("Player - Start");
         rb = GetComponent<Rigidbody2D>();
-        moveType = MoveType.Boss;
+        moveType = MoveType.Normal;
 
         ship = FindObjectOfType<Ship>();
     }
