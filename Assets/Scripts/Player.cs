@@ -58,8 +58,8 @@ public class Player : MonoBehaviour {
         rb.bodyType = moveType == MoveType.Normal ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
         ship.rb.bodyType = moveType == MoveType.Boss ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
 
-        if (moveType == MoveType.Normal) MoveBody(rb);
-        if (moveType == MoveType.Boss) MoveBody(ship.rb);
+        if (moveType == MoveType.Normal) MoveBody(rb, ship.rb);
+        if (moveType == MoveType.Boss) MoveBody(ship.rb,rb);
 
 
         if(Input.GetKeyDown(KeyCode.B))
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour {
         hpBarBoss.gameObject.SetActive(true);
     }
 
-    public void MoveBody(Rigidbody2D rb)
+    public void MoveBody(Rigidbody2D rb, Rigidbody2D other)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(new Vector3(0, 0, 1), 0);
@@ -135,6 +135,12 @@ public class Player : MonoBehaviour {
 
             //rb.velocity = velocity*(1.0f/Time.fixedDeltaTime);
             //Debug.Log(distance);
+        }
+
+        Vector3 dir=other.transform.position - rb.transform.position;
+        if(dir.magnitude>4)
+        {
+            other.AddForce(-dir*200.0f);
         }
     }
 }
