@@ -72,17 +72,17 @@ public class Boss : Hittable {
 
                 float t = Time.time - phaseStart;
                 float y = Mathf.Sin(t)*0.8f;
-                float cosy = Mathf.Cos(t)*1.2f; 
+                float cosy = Mathf.Cos(t)*1.0f; 
                 //Debug.Log("->"+t+" "+y);
                 b.transform.forward = new Vector3(-1, y);
 
+                b = Instantiate(prefabBullet, transform.position + new Vector3(-4, -1, 0), Quaternion.identity).GetComponent<Bullet>();
+                b.transform.forward = new Vector3(0.2f, -2);
+
+                b = Instantiate(prefabBullet, transform.position + new Vector3(-4, +1, 0), Quaternion.identity).GetComponent<Bullet>();
+                b.transform.forward = new Vector3(0.2f, 2);
+
                 /*b = Instantiate(prefabBullet, transform.position + new Vector3(1, 0, 0), Quaternion.identity).GetComponent<Bullet>();
-                b.transform.forward = new Vector3(1, -y);
-
-                b = Instantiate(prefabBullet, transform.position + new Vector3(-1, 0, 0), Quaternion.identity).GetComponent<Bullet>();
-                b.transform.forward = new Vector3(-1, cosy);
-
-                b = Instantiate(prefabBullet, transform.position + new Vector3(1, 0, 0), Quaternion.identity).GetComponent<Bullet>();
                 b.transform.forward = new Vector3(1, -cosy);
 
                 b = Instantiate(prefabBullet, transform.position + new Vector3(0, 3, 0), Quaternion.identity).GetComponent<Bullet>();
@@ -94,8 +94,24 @@ public class Boss : Hittable {
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Ship s = other.transform.GetComponent<Ship>();
+        if (s!=null)
+        {
+            s.HandleDamage(transform);
+        }
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        Ship s = other.transform.GetComponent<Ship>();
+        if (s != null)
+        {
+            s.HandleDamage(transform);
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D other)
-    //void OnTriggerEnter2D(Collider2D other)
     {
         Player p = other.transform.GetComponent<Player>();
         Ship s = other.transform.GetComponent<Ship>();

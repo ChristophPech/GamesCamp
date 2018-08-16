@@ -202,6 +202,7 @@ public class Enemy : Hittable
     public override void Die()
     {
         MovementActive = false;
+        isDead = true;
         timeDied = Time.time;
         //Destroy(gameObject);
     }

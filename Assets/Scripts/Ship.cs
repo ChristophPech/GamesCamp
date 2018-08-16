@@ -25,16 +25,16 @@ public class Ship : Hittable {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void HandleDamage(Transform other)
     {
-        Enemy e = other.transform.GetComponent<Enemy>();
-        Boss b = other.transform.GetComponent<Boss>();
-        Obstacle o = other.transform.GetComponent<Obstacle>();
+        Enemy e = other.GetComponent<Enemy>();
+        Boss b = other.GetComponent<Boss>();
+        Obstacle o = other.GetComponent<Obstacle>();
 
-        if (b==null&&o==null) {return;}
+        if (b == null && o == null) { return; }
         Debug.Log("trigger:" + e + " " + b);
 
-        if (Time.time-timeHit<0.5f)
+        if (Time.time - timeHit < 0.5f)
         {
             Debug.Log("Still immune:" + (Time.time - timeHit));
             return;
@@ -42,6 +42,23 @@ public class Ship : Hittable {
         timeHit = Time.time;
         TakeDamage(1);
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        HandleDamage(other.transform);
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        HandleDamage(other.transform);
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        HandleDamage(other.transform);
+    }
+    void OnCollisionStay2D(Collision2D other)
+    {
+        HandleDamage(other.transform);
     }
 
     public override void Die()
