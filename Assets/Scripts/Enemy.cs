@@ -8,6 +8,7 @@ public class Enemy : Hittable
     bool MovementActive = true;
     private float timeDied;
     public bool StrongEnemy = false;
+    public float StrongEnemyChance = 0.4f;
     public float Speed = 2f;
     public int Collision_Count = 0;
 
@@ -36,6 +37,7 @@ public class Enemy : Hittable
     {
         hitPointsMax = 1;
         base.Start();
+        StrongEnemy = (Random.value < StrongEnemyChance);
     }
 
     // Update is called once per frame
