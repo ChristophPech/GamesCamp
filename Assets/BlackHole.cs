@@ -33,10 +33,5 @@ public class BlackHole : Hittable {
             timeHit = Time.time;
             ship.TakeDamage(1);
         }
-
-        /*if(enemy.absorbed_by_blackhole)
-        {
-            transform.position = new Vector3(xpos++, 0, 0);
-        }*/
     }
 }
