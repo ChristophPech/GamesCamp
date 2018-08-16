@@ -8,6 +8,8 @@ public class WaveGenerator : MonoBehaviour {
     public float time = 0f;
     public float future = 0f;
 
+    private Player player;
+
     [System.Serializable]
     public class Wave
     {
@@ -18,6 +20,7 @@ public class WaveGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        player = FindObjectOfType<Player>();
         waves = new List<Wave>();
         future = Time.time;
 
@@ -46,15 +49,16 @@ public class WaveGenerator : MonoBehaviour {
 
     public void SpawnRandomWave()
     {
-        rand_wave = Random.Range(0, 7);
-        rand_time = Random.Range(2, 8);
-        time = Time.time;
-
-        int rand2 = Random.Range(0, 7);
-        if(future <= time)
+        if (player.moveType == Player.MoveType.Normal)
         {
-            SpawnWave(waves[rand2]);
-            future += 5;
+            time = Time.time;
+
+            int rand2 = Random.Range(0, 7);
+            if (future <= time)
+            {
+                SpawnWave(waves[rand2]);
+                future += 5;
+            }
         }
     }
     // Zum waves test (wird nach wave-erstellung entfernt)
