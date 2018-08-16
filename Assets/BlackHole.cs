@@ -5,7 +5,9 @@ using UnityEngine;
 public class BlackHole : Hittable {
 
     private Ship ship;
+    private Enemy enemy;
     public float DamageZone = -10;
+    public float xpos = -12;
     public float SafeTime = 1f;
     private float timeHit = 1f;
 
@@ -14,6 +16,7 @@ public class BlackHole : Hittable {
         base.Start();
 
         ship = FindObjectOfType<Ship>();
+        enemy = FindObjectOfType<Enemy>();
     }
 
     public override void FixedUpdate()
@@ -30,5 +33,10 @@ public class BlackHole : Hittable {
             timeHit = Time.time;
             ship.TakeDamage(1);
         }
+
+        /*if(enemy.absorbed_by_blackhole)
+        {
+            transform.position = new Vector3(xpos++, 0, 0);
+        }*/
     }
 }

@@ -13,7 +13,7 @@ public class WaveGenerator : MonoBehaviour {
     [System.Serializable]
     public class Wave
     {
-        public List<Enemy> enemies = new List<Enemy>();
+        public List<Hittable> enemies = new List<Hittable>();
     }
 
     public List<Wave> waves = new List<Wave>();
@@ -31,7 +31,7 @@ public class WaveGenerator : MonoBehaviour {
 
             foreach (Transform enemyObj in waveChild)
             {
-                Enemy e=enemyObj.GetComponent<Enemy>();
+                Hittable e=enemyObj.GetComponent<Hittable>();
                 newWave.enemies.Add(e);
                 e.gameObject.SetActive(false);
             }
@@ -53,7 +53,7 @@ public class WaveGenerator : MonoBehaviour {
         {
             time = Time.time;
 
-            int rand2 = Random.Range(0, 7);
+            int rand2 = Random.Range(0, 8);
             if (future <= time)
             {
                 SpawnWave(waves[rand2]);
@@ -118,9 +118,9 @@ public class WaveGenerator : MonoBehaviour {
 
     public void SpawnWave(Wave w)
     {
-        foreach(Enemy e in w.enemies)
+        foreach(Hittable e in w.enemies)
         {
-            Enemy newEnemy=Instantiate(e.gameObject, e.transform.localPosition, e.transform.localRotation).GetComponent<Enemy>();
+            Hittable newEnemy=Instantiate(e.gameObject, e.transform.localPosition, e.transform.localRotation).GetComponent<Hittable>();
             newEnemy.transform.position += new Vector3(15, 0, 0);
             newEnemy.enabled = true;
             newEnemy.gameObject.SetActive(true);

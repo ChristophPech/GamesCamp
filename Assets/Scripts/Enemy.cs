@@ -11,6 +11,7 @@ public class Enemy : Hittable
     public float StrongEnemyChance = 0.4f;
     public float Speed = 2f;
     public int Collision_Count = 0;
+    public int absorbed_by_blackhole = 0;
 
     public enum MoveType
     {
@@ -85,8 +86,10 @@ public class Enemy : Hittable
         Player p=info.transform.GetComponent<Player>();
         Obstacle o = info.transform.GetComponent<Obstacle>();
         Enemy e = info.transform.GetComponent<Enemy>();
-        if (p!=null||o!=null||e!=null)
+        BlackHole b = info.transform.GetComponent<BlackHole>();
+        if (p!=null||o!=null||e!=null||b!=null)
         {
+            if (b != null) absorbed_by_blackhole++;
             GetHit();
         }
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
