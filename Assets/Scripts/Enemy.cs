@@ -124,9 +124,16 @@ public class Enemy : Hittable
     //Movement 
     public void Movement()
     {
-        if (MovementActive == false) {
+        if (MovementActive == false)
+        {
             //rb.AddForce(-Vector3.right * 2.0f);
             return;
+        }
+
+        if (transform.position.x < -14)
+        {
+            Die();
+            FindObjectOfType<BlackHole>().EnemyOut();
         }
 
         if (transform.position.x < -20) Die();
