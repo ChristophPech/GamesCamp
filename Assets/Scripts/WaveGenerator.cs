@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour {
+    public int rand_wave = 0;
+    public float rand_time = 0f;
+    public float time = 0f;
+    public float future = 0f;
 
     [System.Serializable]
     public class Wave
@@ -15,6 +19,7 @@ public class WaveGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         waves = new List<Wave>();
+        future = Time.time;
 
         var waveObj = GameObject.Find("Waves");
         foreach(Transform waveChild in waveObj.transform)
@@ -34,16 +39,24 @@ public class WaveGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        SpawnSpecificWave();
-        if (Input.GetButtonDown("Fire1")) SpawnRandomWave();
+        SpawnRandomWave();
+        //SpawnSpecificWave();
+        //if (Input.GetButtonDown("Fire1")) SpawnRandomWave();
 	}
 
     public void SpawnRandomWave()
     {
-        Wave w=waves[Random.Range(0, waves.Count)];
-        SpawnWave(w);
-    }
+        rand_wave = Random.Range(0, 7);
+        rand_time = Random.Range(2, 8);
+        time = Time.time;
 
+        int rand2 = Random.Range(0, 7);
+        if(future <= time)
+        {
+            SpawnWave(waves[rand2]);
+            future += 5;
+        }
+    }
     // Zum waves test (wird nach wave-erstellung entfernt)
     public void SpawnSpecificWave()
     {
@@ -55,6 +68,7 @@ public class WaveGenerator : MonoBehaviour {
         Wave w5 = waves[5];
         Wave w6 = waves[6];
         Wave w7 = waves[7];
+        //Wave w8 = waves[8];
 
         if(Input.GetKeyDown("1")){
             SpawnWave(w0);
@@ -87,6 +101,10 @@ public class WaveGenerator : MonoBehaviour {
         {
             SpawnWave(w7);
         }
+        //if (Input.GetKeyDown("9"))
+        //{
+        //    SpawnWave(w8);
+        //}
 
     } 
 
