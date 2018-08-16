@@ -7,10 +7,9 @@ public class ParticleEffect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timeDie = Time.time + 3.0f;
-        foreach (var ps in GetComponentsInChildren<ParticleSystem>())
-        {
-            ps.Play();
-        }
+        var effects=GetComponentsInChildren<ParticleSystem>();
+        //effects[Random.Range(0, effects.Length)].Play();
+        foreach (var ps in GetComponentsInChildren<ParticleSystem>()) {ps.Play();}
 
     }
 
