@@ -24,6 +24,9 @@ public class Player : MonoBehaviour {
     public static int score;
     private Transform skybox;
 
+    public AudioClip musicNormal;
+    public AudioClip musicBoss;
+
     public enum MoveType
     {
         None,
@@ -95,6 +98,10 @@ public class Player : MonoBehaviour {
 
         rb.angularVelocity = 0;
         rb.rotation = 0;
+
+        AudioSource src= Camera.main.GetComponent<AudioSource>();
+        src.clip = musicNormal;
+        src.Play();
     }
 
     public void BossDied()
@@ -115,6 +122,10 @@ public class Player : MonoBehaviour {
 
         chargeBar.gameObject.SetActive(false);
         hpBarBoss.gameObject.SetActive(true);
+
+        AudioSource src = Camera.main.GetComponent<AudioSource>();
+        src.clip = musicBoss;
+        src.Play();
     }
 
     public void MoveBody(Rigidbody2D rb, Rigidbody2D other)

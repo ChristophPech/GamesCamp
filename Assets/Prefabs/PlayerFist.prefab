@@ -1068,6 +1068,8 @@ MonoBehaviour:
   hpBarBoss: {fileID: 0}
   chargeBar: {fileID: 0}
   scoreText: {fileID: 0}
+  musicNormal: {fileID: 8300000, guid: fe8ce56e77391e44da47fcd2809627b0, type: 3}
+  musicBoss: {fileID: 8300000, guid: 3ce6f81f25f5e1048b74a09da01d55a3, type: 3}
   moveType: 0
 --- !u!114 &114263311591122952
 MonoBehaviour:
