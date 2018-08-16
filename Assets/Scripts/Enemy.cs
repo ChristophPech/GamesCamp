@@ -40,6 +40,15 @@ public class Enemy : Hittable
         hitPointsMax = 1;
         base.Start();
         StrongEnemy = (Random.value < StrongEnemyChance);
+
+        if(StrongEnemy)
+        {
+            transform.Find("GfxFly").gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.Find("GfxBug").gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
