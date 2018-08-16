@@ -1,41 +1,14 @@
 fileFormatVersion: 2
-guid: 54137c49dede23f4eaee499466f1991f
+guid: eb0c9e32fe5ad7a42988527fbb7fc228
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: //RootNode
-    100004: Icosphere
-    100006: Sphere
-    100008: Sphere.001
-    400000: Cylinder
-    400002: //RootNode
-    400004: Icosphere
-    400006: Sphere
-    400008: Sphere.001
-    2100000: Eyes
-    2100002: Material
-    2100004: Ring
-    2100006: Underwear
-    2100008: Skin
-    2100010: Shoes
-    2100012: Balls
-    2100014: Nose
-    2100016: Rocket
-    2100018: Material.002
-    2100020: Material.001
-    2300000: Cylinder
-    2300002: Icosphere
-    2300004: Sphere
-    2300006: Sphere.001
-    3300000: Cylinder
-    3300002: Icosphere
-    3300004: Sphere
-    3300006: Sphere.001
-    4300000: Icosphere
-    4300002: Sphere.001
-    4300004: Sphere
-    4300006: Cylinder
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Medium
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: MeteorMedium1_low
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,8 +60,6 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
