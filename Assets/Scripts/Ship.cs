@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Ship : Hittable {
-    public Rigidbody2D rb;
     private Player player;
     private float timeHit;
 
@@ -12,7 +11,6 @@ public class Ship : Hittable {
     public override void Start () {
         hitPointsMax = 10;
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Player>();
     }
 

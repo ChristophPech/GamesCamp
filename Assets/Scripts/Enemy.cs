@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Enemy : Hittable
 {
-    private Rigidbody2D rb;
     bool MovementActive = true;
     private float timeDied;
     public bool StrongEnemy = false;
@@ -35,7 +34,6 @@ public class Enemy : Hittable
     // Use this for initialization
     public override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         hitPointsMax = 1;
         base.Start();
     }
@@ -74,7 +72,9 @@ public class Enemy : Hittable
     {
         Debug.Log("hit:"+ info.relativeVelocity);
         Player p=info.transform.GetComponent<Player>();
-        if(p!=null)
+        Obstacle o = info.transform.GetComponent<Obstacle>();
+        Enemy e = info.transform.GetComponent<Enemy>();
+        if (p!=null||o!=null||e!=null)
         {
             GetHit();
         }

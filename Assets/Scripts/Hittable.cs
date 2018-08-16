@@ -13,9 +13,12 @@ public class Hittable : MonoBehaviour {
 
     [HideInInspector]
     public bool isDead = false;
+    [HideInInspector]
+    public Rigidbody2D rb;
 
     // Use this for initialization
     public virtual void Start () {
+        rb = GetComponent<Rigidbody2D>();
         hitPointsCur = hitPointsMax;
         
         if (prefabHPBar != null) Instantiate(prefabHPBar, transform);

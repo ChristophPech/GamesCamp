@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacle : Hittable {
-    public Rigidbody2D rb;
+
+    int rot = 0;
 
     // Use this for initialization
     public override void Start () {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
+
+        rot = Random.value < 0.5 ? -1 : 1;
     }
 
     // Update is called once per frame
@@ -19,7 +21,9 @@ public class Obstacle : Hittable {
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        rb.AddForce(new Vector3(-1, 0, 0), ForceMode2D.Force);
+        rb.AddForce(new Vector3(-10, 0, 0), ForceMode2D.Force);
+
+        if(rot!=0) rb.AddTorque(0.9f* rot, ForceMode2D.Force);
 
         //transform.position += new Vector3(-10, 0, 0) * Time.fixedDeltaTime;
         if (transform.position.x < -20) Die();
@@ -28,6 +32,7 @@ public class Obstacle : Hittable {
     void OnCollisionEnter2D(Collision2D info)
     {
         Debug.Log("------------> hit:" + info.transform.name);
-        rb.AddForce(info.relativeVelocity * 1, ForceMode2D.Impulse);
+        rot = 0;
+        //rb.AddForce(info.relativeVelocity * 1, ForceMode2D.Impulse);
     }
 }
