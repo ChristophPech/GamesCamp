@@ -583,6 +583,30 @@ Transform:
   m_Father: {fileID: 769625419}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &386979801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1828312225532444, guid: 6b56665d01e3b9647be36dba68ed063e,
+    type: 2}
+  m_PrefabInternal: {fileID: 840042665}
+--- !u!114 &386979803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 386979801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64e2356d9778d04a8c1656aee3960d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPointsMax: 8
+  hitPointsCur: 0
+  prefabHPBar: {fileID: 0}
+  hpBar: {fileID: 0}
+  isDead: 0
+  rb: {fileID: 0}
+  DamageZone: -10
+  SafeTime: 1
 --- !u!1001 &488770793
 Prefab:
   m_ObjectHideFlags: 0
@@ -1557,6 +1581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4251e41f76dff1042ac52fb2fc21cd40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rand_wave: 0
+  rand_time: 0
+  time: 0
+  future: 0
   waves: []
 --- !u!4 &799057419 stripped
 Transform:
