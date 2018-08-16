@@ -33,6 +33,11 @@ public class Boss : Hittable {
     {
         base.FixedUpdate();
 
+        if(transform.position.x>6)
+        {
+            rb.MovePosition(transform.position+(new Vector3(-1,0,0))*Time.fixedDeltaTime);
+        }
+
         if(!phaseFire)
         {
             if(Time.time- phaseStart > durationOpen)
