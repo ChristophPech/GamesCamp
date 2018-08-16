@@ -127,7 +127,7 @@ public class Enemy : Hittable
         }
         if (moveType == MoveType.BreakDown)
         {
-            Debug.Log(transform.position.x);
+            //Debug.Log(transform.position.x);
             if (transform.position.x > 5)
             {
                 rb.velocity = (-transform.right) * Speed;
