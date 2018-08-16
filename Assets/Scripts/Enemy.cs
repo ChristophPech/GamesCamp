@@ -194,7 +194,7 @@ public class Enemy : Hittable
 
     public void Destroy()
     {
-        GameObject psgo = Instantiate(prefabSplash, transform.position, Quaternion.identity);
+        GameObject psgo = Instantiate(prefabSplash, transform.position, Quaternion.Euler(0,90,0));
         psgo.AddComponent<ParticleEffect>();
         Destroy(gameObject);
     }
