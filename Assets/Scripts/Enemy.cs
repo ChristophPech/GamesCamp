@@ -12,6 +12,8 @@ public class Enemy : Hittable
     public float Speed = 2f;
     public int Collision_Count = 0;
 
+    public GameObject prefabSplash;
+
     public enum MoveType
     {
         Straight,
@@ -54,17 +56,17 @@ public class Enemy : Hittable
         // Wird ausgeführt wenn ein Enemy drei weitere Enemies beruehrt hat (nur auf Probe)
         if(StrongEnemy == true && Collision_Count == 3)
         {
-            Destroy(gameObject);
+            Destroy();
         }
 
         if (StrongEnemy == false && Collision_Count ==1)
         {
-            Destroy(gameObject);
+            Destroy();
         }
         
         if (timeDied != 0 && Time.time - timeDied > 5)
         {
-            Destroy(gameObject);
+            Destroy();
             Debug.Log("Enemy destroyed.");
         }
 
@@ -179,6 +181,13 @@ public class Enemy : Hittable
     public void Patterns()
     {
 
+    }
+
+    public void Destroy()
+    {
+        GameObject psgo = Instantiate(prefabSplash, transform.position, Quaternion.identity);
+        psgo.AddComponent<ParticleEffect>();
+        Destroy(gameObject);
     }
 
     public override void Die()

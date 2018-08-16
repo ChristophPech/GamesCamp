@@ -441,6 +441,8 @@ MonoBehaviour:
   StrongEnemyChance: 0.4
   Speed: 2
   Collision_Count: 0
+  prefabSplash: {fileID: 1457218918486698, guid: 8b1fa8774f865584dadf9ddd47d18479,
+    type: 2}
   Frequency: 0
   Phase: 0
   Amplitude: 0
