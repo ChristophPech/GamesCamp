@@ -57,8 +57,12 @@ public class WaveGenerator : MonoBehaviour {
             if (future <= time)
             {
                 SpawnWave(waves[rand2]);
-                future += 5;
+                future = Time.time + 5;
             }
+        }
+        else
+        {
+            future = Time.time + 2;
         }
     }
     // Zum waves test (wird nach wave-erstellung entfernt)
