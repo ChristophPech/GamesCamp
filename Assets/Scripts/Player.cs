@@ -107,7 +107,7 @@ public class Player : MonoBehaviour {
     void SpawnBoss()
     {
         if (bossEntity != null) return;
-        bossEntity = Instantiate(prefabBoss, new Vector3(15, 0, 0), Quaternion.identity).GetComponent<Boss>();
+        bossEntity = Instantiate(prefabBoss, new Vector3(19, 0, 0), Quaternion.identity).GetComponent<Boss>();
         bossEntity.hpBar = hpBarBoss;
         bossEntity.player = this;
         moveType = MoveType.Boss;
