@@ -128,8 +128,10 @@ public class Player : MonoBehaviour {
 
             Vector3 newPos = rb.transform.position * (1.0f - MouseSpeed) + rayWorldPosition * MouseSpeed;
             Vector3 velocity = newPos - rb.transform.position;
-            //transform.position = newPos;
             rb.MovePosition(newPos);
+
+            //Vector3 dir=newPos-rb.transform.position;
+            //rb.AddForce(dir * 1000.0f,ForceMode2D.Force);
 
             //rb.velocity = velocity*(1.0f/Time.fixedDeltaTime);
             //Debug.Log(distance);

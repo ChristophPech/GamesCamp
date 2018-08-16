@@ -20,7 +20,7 @@ public class Ship : Hittable {
 
         if (player.moveType == Player.MoveType.Normal)
         {
-            rb.AddForce(new Vector2(-1000f, 0));
+            rb.AddForce(new Vector2(-200f, 0));
         }
     }
 

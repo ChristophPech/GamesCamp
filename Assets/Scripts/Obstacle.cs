@@ -21,7 +21,7 @@ public class Obstacle : Hittable {
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        rb.AddForce(new Vector3(-10, 0, 0), ForceMode2D.Force);
+        rb.AddForce(new Vector3(-60, 0, 0), ForceMode2D.Force);
 
         if(rot!=0) rb.AddTorque(0.9f* rot, ForceMode2D.Force);
 
