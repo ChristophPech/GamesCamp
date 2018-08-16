@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
 
     private Rigidbody2D rb;
     private Ship ship;
-    private int score;
+    public static int score;
     private Transform skybox;
 
     public enum MoveType
@@ -36,6 +36,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Debug.Log("Player - Start");
+        score = 0;
         rb = GetComponent<Rigidbody2D>();
         ship = FindObjectOfType<Ship>();
         score = 0;

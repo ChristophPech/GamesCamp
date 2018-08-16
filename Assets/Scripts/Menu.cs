@@ -6,10 +6,16 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
     public Button btnStart;
+    public Text txtScore;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         btnStart.onClick.AddListener(StartGame);
+
+        if(txtScore!=null)
+        {
+            txtScore.text = "Score: " + Player.score;
+        }
 	}
 	
 	// Update is called once per frame

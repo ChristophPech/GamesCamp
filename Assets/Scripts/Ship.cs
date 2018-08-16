@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Ship : Hittable {
@@ -47,6 +48,7 @@ public class Ship : Hittable {
     {
         Debug.Log("Game Over");
         transform.parent.gameObject.SetActive(false);
+        SceneManager.LoadScene("GameOver");
         //Destroy(gameObject);
     }
 }
