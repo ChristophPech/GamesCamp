@@ -8,6 +8,12 @@ public class Boss : Hittable {
 
     public Bullet prefabBullet;
 
+    public AudioClip sndStart;
+    public AudioClip sndDie;
+    public AudioClip sndOpen;
+    public AudioClip sndShoot;
+    public AudioClip sndHit;
+
     private float timeHit;
     private float timeFire;
     private bool phaseFire;
@@ -15,6 +21,7 @@ public class Boss : Hittable {
 
     public Player player;
     Animator anim;
+    AudioSource audio;
 
     // Use this for initialization
     public override void Start () {
@@ -25,6 +32,9 @@ public class Boss : Hittable {
         phaseStart = Time.time;
 
         anim = GetComponent<Animator>();
+        audio= GetComponent<AudioSource>();
+
+        audio.PlayOneShot(sndStart);
     }
 
     // Update is called once per frame
@@ -48,6 +58,7 @@ public class Boss : Hittable {
                 phaseFire = true;
                 phaseStart = Time.time;
                 anim.SetBool("Open", false);
+                audio.PlayOneShot(sndShoot);
                 return;
             }
         }
@@ -59,6 +70,7 @@ public class Boss : Hittable {
                 phaseFire = false;
                 phaseStart = Time.time;
                 anim.SetBool("Open", true);
+                audio.PlayOneShot(sndOpen);
                 return;
             }
 
@@ -142,6 +154,7 @@ public class Boss : Hittable {
             GameObject psgo = Instantiate(prefabSplash, other.GetContact(0).point, Quaternion.Euler(0, 90, 0));
             psgo.AddComponent<ParticleEffect>();
 
+            audio.PlayOneShot(sndHit);
         }
 
         if (p != null)
@@ -158,5 +171,8 @@ public class Boss : Hittable {
     {
         player.BossDied();
         base.Die();
+
+        AudioSource src = Camera.main.GetComponent<AudioSource>();
+        src.PlayOneShot(sndDie);
     }
 }

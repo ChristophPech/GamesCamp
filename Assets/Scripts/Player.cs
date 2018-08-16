@@ -150,6 +150,9 @@ public class Player : MonoBehaviour {
             //Debug.Log(distance);
         }
 
+        rb.angularVelocity = 0;
+        rb.MoveRotation(0);
+
         Vector3 dir=other.transform.position - rb.transform.position;
         if(dir.magnitude>4)
         {

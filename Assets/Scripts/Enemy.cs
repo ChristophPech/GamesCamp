@@ -13,6 +13,9 @@ public class Enemy : Hittable
     public int Collision_Count = 0;
     public int absorbed_by_blackhole = 0;
 
+    public AudioClip sndDie;
+    AudioSource audio;
+
     public enum MoveType
     {
         Straight,
@@ -48,6 +51,8 @@ public class Enemy : Hittable
         {
             transform.Find("GfxBug").gameObject.SetActive(false);
         }
+
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -205,6 +210,9 @@ public class Enemy : Hittable
         MovementActive = false;
         isDead = true;
         timeDied = Time.time;
+
+        AudioSource src = Camera.main.GetComponent<AudioSource>();
+        src.PlayOneShot(sndDie);
         //Destroy(gameObject);
     }
 }

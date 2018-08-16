@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 50414470223988408}
   - component: {fileID: 58369615545468034}
   - component: {fileID: 114510398204958698}
+  - component: {fileID: 82116869489973692}
   m_Layer: 0
   m_Name: EnemyFly
   m_TagString: Untagged
@@ -845,6 +846,101 @@ CircleCollider2D:
   m_Offset: {x: -0.03, y: 0.24}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!82 &82116869489973692
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331846199732598}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114510398204958698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -860,14 +956,16 @@ MonoBehaviour:
   hitPointsCur: 0
   prefabHPBar: {fileID: 0}
   hpBar: {fileID: 0}
+  prefabSplash: {fileID: 1457218918486698, guid: 8b1fa8774f865584dadf9ddd47d18479,
+    type: 2}
   isDead: 0
   rb: {fileID: 0}
   StrongEnemy: 0
   StrongEnemyChance: 0.4
   Speed: 2
   Collision_Count: 0
-  prefabSplash: {fileID: 1457218918486698, guid: 8b1fa8774f865584dadf9ddd47d18479,
-    type: 2}
+  absorbed_by_blackhole: 0
+  sndDie: {fileID: 8300000, guid: 7e7b18e919b033f43bedff4ce5f08687, type: 3}
   Frequency: 0
   Phase: 0
   Amplitude: 0
