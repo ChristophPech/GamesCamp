@@ -80,7 +80,7 @@ public class Player : MonoBehaviour {
     {
         chargeBar.value += 1;
         if (chargeBar.value >= chargeBar.maxValue) SpawnBoss();
-        score++;
+        score += 50;
     }
 
     public void NormalMode()
@@ -100,6 +100,7 @@ public class Player : MonoBehaviour {
     public void BossDied()
     {
         bossEntity = null;
+        score += 1000;
         NormalMode();
     }
 
