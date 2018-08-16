@@ -23,6 +23,20 @@ public class Ship : Hittable {
         {
             rb.AddForce(new Vector2(-200f, 0));
         }
+
+        //GameObject psgo = Instantiate(prefabSplash, transform.position, Quaternion.Euler(0, 0, 0));
+        //psgo.AddComponent<ParticleEffect>();
+
+    }
+
+    public override bool TakeDamage(int damage)
+    {
+        bool bDead = base.TakeDamage(damage);
+
+        GameObject psgo = Instantiate(prefabSplash, transform.position, Quaternion.Euler(0, 0, 0));
+        psgo.AddComponent<ParticleEffect>();
+
+        return bDead;
     }
 
     public void HandleDamage(Transform other)
@@ -31,7 +45,7 @@ public class Ship : Hittable {
         Boss b = other.GetComponent<Boss>();
         Obstacle o = other.GetComponent<Obstacle>();
 
-        if (b == null && o == null) { return; }
+        if (b == null && o == null && e==null) { return; }
         Debug.Log("trigger:" + e + " " + b);
 
         if (Time.time - timeHit < 0.5f)

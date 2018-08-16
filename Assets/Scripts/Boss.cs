@@ -7,7 +7,6 @@ public class Boss : Hittable {
     public float durationOpen = 3f;
 
     public Bullet prefabBullet;
-    public GameObject prefabSplash;
 
     private float timeHit;
     private float timeFire;

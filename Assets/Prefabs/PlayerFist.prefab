@@ -838,6 +838,8 @@ MonoBehaviour:
   hitPointsCur: 0
   prefabHPBar: {fileID: 0}
   hpBar: {fileID: 0}
+  prefabSplash: {fileID: 1796563184702584, guid: e4554a8154f36eb44bd3a93064722f40,
+    type: 2}
   isDead: 0
   rb: {fileID: 0}
 --- !u!212 &212361725430290566

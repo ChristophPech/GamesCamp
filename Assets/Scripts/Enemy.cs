@@ -12,8 +12,6 @@ public class Enemy : Hittable
     public float Speed = 2f;
     public int Collision_Count = 0;
 
-    public GameObject prefabSplash;
-
     public enum MoveType
     {
         Straight,
@@ -102,7 +100,7 @@ public class Enemy : Hittable
         if (s != null)
         {
             GetHit();
-            s.TakeDamage(1);
+            s.HandleDamage(transform);
         }
     }
 
