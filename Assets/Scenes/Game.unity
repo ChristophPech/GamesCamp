@@ -162,7 +162,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 307
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -3114,6 +3114,10 @@ Prefab:
     - target: {fileID: 4279086288432484, guid: 53663b25e5b477a49a825240bb28f8f4, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1708852600415226, guid: 53663b25e5b477a49a825240bb28f8f4, type: 2}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53663b25e5b477a49a825240bb28f8f4, type: 2}
