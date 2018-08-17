@@ -78,12 +78,12 @@ public class Boss : Hittable {
             {
                 timeFire = Time.time;
 
-                Bullet b=Instantiate(prefabBullet, transform.position + new Vector3(-4, 0, 0), Quaternion.identity).GetComponent<Bullet>();
+                Bullet b=Instantiate(prefabBullet, transform.position + new Vector3(-4.8f, 0.3f, 0), Quaternion.identity).GetComponent<Bullet>();
 
 
                 float t = Time.time - phaseStart;
                 float y = Mathf.Sin(t)*0.8f;
-                float cosy = Mathf.Cos(t)*1.0f; 
+                float cosy = Mathf.Cos(t)*1.3f; 
                 //Debug.Log("->"+t+" "+y);
                 b.transform.forward = new Vector3(-1, y);
 
