@@ -16,6 +16,8 @@ public class Menu : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Cursor.visible = true;
+
         btnStart.onClick.AddListener(StartGame);
         if(btnQuit != null) btnQuit.onClick.AddListener(QuitGame);
 
@@ -54,6 +56,7 @@ public class Menu : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+        Cursor.visible = false;
     }
 
     public void QuitGame()
