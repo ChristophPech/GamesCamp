@@ -30,6 +30,26 @@ ModelImporter:
     100048: Cylinder.022
     100050: Cylinder.023
     100052: Cylinder.024
+    100054: Armature
+    100056: Bone
+    100058: Bone.001
+    100060: Bone.002
+    100062: Bone.003
+    100064: Bone.004
+    100066: Bone.004_end
+    100068: Bone.005
+    100070: Bone.005_end
+    100072: Bone.006
+    100074: Bone.006_end
+    100076: Bone.007
+    100078: Bone.007_end
+    100080: Bone.008
+    100082: Bone.009
+    100084: Bone.009_end
+    100086: Bone.010
+    100088: Bone.011
+    100090: Bone.011_end
+    100092: Bone_end
     400000: //RootNode
     400002: Circle
     400004: Cylinder
@@ -57,6 +77,26 @@ ModelImporter:
     400048: Cylinder.022
     400050: Cylinder.023
     400052: Cylinder.024
+    400054: Armature
+    400056: Bone
+    400058: Bone.001
+    400060: Bone.002
+    400062: Bone.003
+    400064: Bone.004
+    400066: Bone.004_end
+    400068: Bone.005
+    400070: Bone.005_end
+    400072: Bone.006
+    400074: Bone.006_end
+    400076: Bone.007
+    400078: Bone.007_end
+    400080: Bone.008
+    400082: Bone.009
+    400084: Bone.009_end
+    400086: Bone.010
+    400088: Bone.011
+    400090: Bone.011_end
+    400092: Bone_end
     2100000: Krone
     2100002: Blaster Spitze
     2100004: Streifen_Klappe
@@ -68,6 +108,7 @@ ModelImporter:
     2100016: Auge
     2100018: Wespe 4
     2100020: Wespe 3.001
+    2100022: Helm
     2300000: Circle
     2300002: Cylinder
     2300004: Cylinder.001
@@ -146,6 +187,31 @@ ModelImporter:
     4300046: Cylinder.003
     4300048: Cylinder.002
     4300050: Cylinder.001
+    7400000: Armature|ArmatureAction
+    7400002: Armature|ArmatureAction.001
+    7400004: Armature|Idle
+    11100000: //RootNode
+    13700000: Circle
+    13700002: Cylinder
+    13700004: Cylinder.001
+    13700006: Cylinder.002
+    13700008: Cylinder.003
+    13700010: Cylinder.004
+    13700012: Cylinder.005
+    13700014: Cylinder.006
+    13700016: Cylinder.007
+    13700018: Cylinder.008
+    13700020: Cylinder.010
+    13700022: Cylinder.013
+    13700024: Cylinder.014
+    13700026: Cylinder.017
+    13700028: Cylinder.019
+    13700030: Cylinder.020
+    13700032: Cylinder.021
+    13700034: Cylinder.022
+    13700036: Cylinder.023
+    13700038: Cylinder.024
+    13700040: Cylinder.009
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -171,10 +237,38 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -221,10 +315,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
