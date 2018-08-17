@@ -7,17 +7,36 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour {
     public Button btnStart;
     public Button btnQuit;
+    public Text txtGameOver;
     public Text txtScore;
     public Text txtHighScore;
+    public AudioClip sndGameOver;
+
+    static bool firstStart = true;
 
     // Use this for initialization
     void Start () {
         btnStart.onClick.AddListener(StartGame);
-        btnQuit.onClick.AddListener(QuitGame);
-        
-        if (Player.score > Player.Highscore) Player.Highscore = Player.score;
+        if(btnQuit != null) btnQuit.onClick.AddListener(QuitGame);
 
-        if (txtScore!=null)
+        txtGameOver.gameObject.SetActive(true);
+        txtScore.gameObject.SetActive(true);
+        if (firstStart)
+        {
+            firstStart = false;
+            Player.Highscore = PlayerPrefs.GetInt("highestScore", Player.Highscore);
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(sndGameOver);
+            txtScore.gameObject.SetActive(false);
+            txtGameOver.gameObject.SetActive(false);
+        }
+
+        if (Player.score > Player.Highscore)
+        {
+            Player.Highscore = Player.score;
+            PlayerPrefs.SetInt("highestScore", Player.Highscore);
+        }
+
+        if (txtScore != null)
         {
             txtScore.text = "Score: " + Player.score;
         }

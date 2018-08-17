@@ -79,7 +79,7 @@ public class Ship : Hittable {
     {
         Debug.Log("Game Over");
         transform.parent.gameObject.SetActive(false);
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Menu");
         
         //Destroy(gameObject);
     }
