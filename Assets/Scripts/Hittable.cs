@@ -11,6 +11,7 @@ public class Hittable : MonoBehaviour {
     public GameObject prefabHPBar;
     public Slider hpBar;
     public GameObject prefabSplash;
+    public GameObject prefabDie;
 
     [HideInInspector]
     public bool isDead = false;

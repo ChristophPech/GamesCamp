@@ -178,6 +178,9 @@ public class Boss : Hittable {
         player.BossDied();
         base.Die();
 
+        GameObject psgo = Instantiate(prefabDie, transform.position, Quaternion.Euler(0, 90, 0));
+        psgo.AddComponent<ParticleEffect>();
+
         AudioSource src = Camera.main.GetComponent<AudioSource>();
         src.PlayOneShot(sndDie);
     }
