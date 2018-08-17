@@ -27,9 +27,12 @@ public class Menu : MonoBehaviour {
         {
             firstStart = false;
             Player.Highscore = PlayerPrefs.GetInt("highestScore", Player.Highscore);
-            Camera.main.GetComponent<AudioSource>().PlayOneShot(sndGameOver);
             txtScore.gameObject.SetActive(false);
             txtGameOver.gameObject.SetActive(false);
+        }
+        else
+        {
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(sndGameOver);
         }
 
         if (Player.score > Player.Highscore)
