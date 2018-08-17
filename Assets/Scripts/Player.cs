@@ -29,6 +29,10 @@ public class Player : MonoBehaviour {
     public AudioClip musicNormal;
     public AudioClip musicBoss;
 
+    public List<AudioClip> randomSounds;
+    public List<AudioClip> randomOld;
+    float nextRandomSound;
+
     public enum MoveType
     {
         None,
@@ -94,6 +98,38 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene("Menu");
         }
         scoreText.text = "" + score;
+
+        if(nextRandomSound!=0&&Time.time> nextRandomSound)
+        {
+            if(randomSounds.Count<=0)
+            {
+                randomSounds.AddRange(randomOld);
+                randomOld.Clear();
+            }
+            int idx=Random.Range(0, randomSounds.Count);
+            var snd=randomSounds[idx];
+            randomSounds.RemoveAt(idx);
+            randomOld.Add(snd);
+
+            nextRandomSound = 0;
+
+            AudioSource src = Camera.main.GetComponent<AudioSource>();
+            //src.PlayOneShot(snd);
+            src.clip = snd;
+            src.Play();
+        }
+        else
+        {
+            if(moveType == MoveType.Normal)
+            {
+                AudioSource src = Camera.main.GetComponent<AudioSource>();
+                if(!src.isPlaying)
+                {
+                    src.clip = musicNormal;
+                    src.Play();
+                }
+            }
+        }
     }
 
     public void Charge()
@@ -116,6 +152,8 @@ public class Player : MonoBehaviour {
 
         rb.angularVelocity = 0;
         rb.rotation = 0;
+
+        nextRandomSound = Time.time + 5;
 
         AudioSource src= Camera.main.GetComponent<AudioSource>();
         src.clip = musicNormal;
