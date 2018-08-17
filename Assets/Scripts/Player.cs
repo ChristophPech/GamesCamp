@@ -18,10 +18,12 @@ public class Player : MonoBehaviour {
     public Slider hpBarBoss;
     public Slider chargeBar;
     public Text scoreText;
+    public Text HighscoreText;
 
     private Rigidbody2D rb;
     private Ship ship;
     public static int score;
+    public static int Highscore;
     private Transform skybox;
 
     public AudioClip musicNormal;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour {
         score = 0;
         skybox = GameObject.Find("Skybox").transform;
         NormalMode();
+        HighscoreText.text = "" + Highscore;
     }
 
     private void Update()
@@ -75,7 +78,6 @@ public class Player : MonoBehaviour {
         {
             SceneManager.LoadScene("Menu");
         }
-
         scoreText.text = "" + score;
     }
 

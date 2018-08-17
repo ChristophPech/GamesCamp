@@ -7,14 +7,20 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour {
     public Button btnStart;
     public Text txtScore;
+    public Text txtHighScore;
 
     // Use this for initialization
     void Start () {
         btnStart.onClick.AddListener(StartGame);
+        if (Player.score > Player.Highscore) Player.Highscore = Player.score;
 
-        if(txtScore!=null)
+        if (txtScore!=null)
         {
             txtScore.text = "Score: " + Player.score;
+        }
+        if(txtHighScore != null)
+        {
+            txtHighScore.text = "Highscore: " + Player.Highscore;
         }
 	}
 	
