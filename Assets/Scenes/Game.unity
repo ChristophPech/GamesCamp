@@ -765,6 +765,7 @@ MonoBehaviour:
   prefabHPBar: {fileID: 0}
   hpBar: {fileID: 0}
   prefabSplash: {fileID: 0}
+  prefabDie: {fileID: 0}
   isDead: 0
   rb: {fileID: 0}
   DamageZone: -10
@@ -2829,11 +2830,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114263311591122952, guid: bfb772c17b3ad6049b8f8060fb838db8,
-        type: 2}
-      propertyPath: hpBar
-      value: 
-      objectReference: {fileID: 1647536151}
     - target: {fileID: 114193946913478138, guid: bfb772c17b3ad6049b8f8060fb838db8,
         type: 2}
       propertyPath: hpBarBoss
@@ -2841,19 +2837,24 @@ Prefab:
       objectReference: {fileID: 364825331}
     - target: {fileID: 114193946913478138, guid: bfb772c17b3ad6049b8f8060fb838db8,
         type: 2}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 527478700}
-    - target: {fileID: 114193946913478138, guid: bfb772c17b3ad6049b8f8060fb838db8,
-        type: 2}
       propertyPath: chargeBar
       value: 
       objectReference: {fileID: 1647536150}
     - target: {fileID: 114193946913478138, guid: bfb772c17b3ad6049b8f8060fb838db8,
         type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 527478700}
+    - target: {fileID: 114193946913478138, guid: bfb772c17b3ad6049b8f8060fb838db8,
+        type: 2}
       propertyPath: HighscoreText
       value: 
       objectReference: {fileID: 1007848748}
+    - target: {fileID: 114263311591122952, guid: bfb772c17b3ad6049b8f8060fb838db8,
+        type: 2}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 1647536151}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfb772c17b3ad6049b8f8060fb838db8, type: 2}
   m_IsPrefabAsset: 0

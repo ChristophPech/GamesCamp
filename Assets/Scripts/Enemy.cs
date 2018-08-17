@@ -120,6 +120,8 @@ public class Enemy : Hittable
         {
             Player p = FindObjectOfType<Player>();
             if(p!=null) p.Charge();
+            AudioSource src = Camera.main.GetComponent<AudioSource>();
+            src.PlayOneShot(sndDie);
         }
     }
 
@@ -220,8 +222,6 @@ public class Enemy : Hittable
         isDead = true;
         timeDied = Time.time;
 
-        AudioSource src = Camera.main.GetComponent<AudioSource>();
-        src.PlayOneShot(sndDie);
         //Destroy(gameObject);
     }
 }

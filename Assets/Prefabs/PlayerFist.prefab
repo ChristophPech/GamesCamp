@@ -1283,7 +1283,7 @@ MonoBehaviour:
   chargeBar: {fileID: 0}
   scoreText: {fileID: 0}
   HighscoreText: {fileID: 0}
-  musicNormal: {fileID: 8300000, guid: fe8ce56e77391e44da47fcd2809627b0, type: 3}
+  musicNormal: {fileID: 8300000, guid: 05c6b4b20a2a65543870d97e62a7d675, type: 3}
   musicBoss: {fileID: 8300000, guid: 3ce6f81f25f5e1048b74a09da01d55a3, type: 3}
   randomSounds:
   - {fileID: 8300000, guid: a35b38773fc1877459706c201fffcc41, type: 3}
