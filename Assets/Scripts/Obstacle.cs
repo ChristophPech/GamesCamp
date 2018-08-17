@@ -5,6 +5,8 @@ using UnityEngine;
 public class Obstacle : Hittable {
 
     int rot = 0;
+    [HideInInspector]
+    public bool PlayerTouched = false;
 
     // Use this for initialization
     public override void Start () {
@@ -33,6 +35,9 @@ public class Obstacle : Hittable {
     {
         Debug.Log("------------> hit:" + info.transform.name);
         rot = 0;
+
+        Player p=info.transform.GetComponent<Player>();
+        if (p != null) PlayerTouched = true;
         //rb.AddForce(info.relativeVelocity * 1, ForceMode2D.Impulse);
     }
 }

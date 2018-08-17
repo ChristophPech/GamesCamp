@@ -95,6 +95,7 @@ public class Enemy : Hittable
         if (p!=null||o!=null||e!=null||b!=null)
         {
             if (b != null) absorbed_by_blackhole++;
+            if (o != null && !o.PlayerTouched) return;
             GetHit();
         }
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);

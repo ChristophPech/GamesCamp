@@ -101,6 +101,7 @@ public class Player : MonoBehaviour {
         chargeBar.value += 1;
         score += 50;
         if (chargeBar.value >= chargeBar.maxValue) SpawnBoss();
+        transform.Find("50").GetComponent<Animator>().SetTrigger("50");
     }
 
     public void NormalMode()
@@ -125,6 +126,7 @@ public class Player : MonoBehaviour {
     {
         bossEntity = null;
         score += 1000;
+        transform.Find("1000").GetComponent<Animator>().SetTrigger("1000");
         NormalMode();
     }
 
