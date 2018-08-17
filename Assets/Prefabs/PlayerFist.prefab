@@ -1286,16 +1286,13 @@ MonoBehaviour:
   musicNormal: {fileID: 8300000, guid: fe8ce56e77391e44da47fcd2809627b0, type: 3}
   musicBoss: {fileID: 8300000, guid: 3ce6f81f25f5e1048b74a09da01d55a3, type: 3}
   randomSounds:
-  - {fileID: 8300000, guid: 4bd6e5f09ea2e694ebfa999dcb28d873, type: 3}
-  - {fileID: 8300000, guid: 24d0e15449b9f634189fc72ae004a092, type: 3}
+  - {fileID: 8300000, guid: a35b38773fc1877459706c201fffcc41, type: 3}
+  - {fileID: 8300000, guid: c886447d42a71c54a9c35c5ad157221e, type: 3}
   - {fileID: 8300000, guid: cec0eff36618fe447bfdffa762ba8993, type: 3}
   - {fileID: 8300000, guid: 80a7509ecd5aab147accb402516a0cfb, type: 3}
   - {fileID: 8300000, guid: b4d93a42429084a41987945ecd9e959f, type: 3}
   - {fileID: 8300000, guid: 49866e4256bce2646ab9e19a652551a7, type: 3}
   - {fileID: 8300000, guid: d67fc69aa651257419b5fd7867d6d41b, type: 3}
-  - {fileID: 8300000, guid: c2945e10ce3f22c4cb64517f5fc3bb38, type: 3}
-  - {fileID: 8300000, guid: 85ffb83b1f96e754a82fe7762c8cea75, type: 3}
-  - {fileID: 8300000, guid: 53810ea3e4c77d2468558d24d428af05, type: 3}
   randomOld: []
   moveType: 0
 --- !u!114 &114263311591122952
@@ -1315,6 +1312,7 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   prefabSplash: {fileID: 1796563184702584, guid: e4554a8154f36eb44bd3a93064722f40,
     type: 2}
+  prefabDie: {fileID: 0}
   isDead: 0
   rb: {fileID: 0}
 --- !u!198 &198130734639899826
