@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
     public Button btnStart;
+    public Button btnQuit;
     public Text txtScore;
     public Text txtHighScore;
 
     // Use this for initialization
     void Start () {
         btnStart.onClick.AddListener(StartGame);
+        btnQuit.onClick.AddListener(QuitGame);
+        
         if (Player.score > Player.Highscore) Player.Highscore = Player.score;
 
         if (txtScore!=null)
@@ -32,5 +35,11 @@ public class Menu : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void QuitGame()
+    {
+        //Debug.Log("Quit");
+        Application.Quit();
     }
 }
