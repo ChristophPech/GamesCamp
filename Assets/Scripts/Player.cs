@@ -56,6 +56,21 @@ public class Player : MonoBehaviour {
         {
             skybox.Rotate(Vector3.forward, -Time.deltaTime*12f);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space");
+            //Time.timeScale = 0;
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+
+            //Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        }
     }
     void FixedUpdate() {
         //hor = Input.GetAxis("Horizontal");
