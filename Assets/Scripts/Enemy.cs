@@ -96,7 +96,7 @@ public class Enemy : Hittable
         {
             if (b != null) absorbed_by_blackhole++;
             if (o != null && !o.PlayerTouched) return;
-            GetHit();
+            GetHit(p!=null);
         }
         //rb.AddForce(info.relativeVelocity * 10, ForceMode2D.Impulse);
     }
@@ -108,17 +108,18 @@ public class Enemy : Hittable
 
         if (s != null)
         {
-            GetHit();
+            GetHit(true);
             s.HandleDamage(transform);
         }
     }
 
-    void GetHit()
+    void GetHit(bool bPlayer)
     {
         Collision_Count++;
-        if (!TakeDamage(1))
+        if (!TakeDamage(1)&& bPlayer)
         {
-            FindObjectOfType<Player>().Charge();
+            Player p = FindObjectOfType<Player>();
+            if(p!=null) p.Charge();
         }
     }
 

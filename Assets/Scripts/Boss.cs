@@ -82,8 +82,8 @@ public class Boss : Hittable {
 
 
                 float t = Time.time - phaseStart;
-                float y = Mathf.Sin(t)*0.8f;
-                float cosy = Mathf.Cos(t)*1.3f; 
+                float y = Mathf.Sin(t)*1.3f;
+                float cosy = Mathf.Cos(t)*0.6f; 
                 //Debug.Log("->"+t+" "+y);
                 b.transform.forward = new Vector3(-1, y);
 
@@ -92,6 +92,12 @@ public class Boss : Hittable {
 
                 b = Instantiate(prefabBullet, transform.position + new Vector3(-4, +1, 0), Quaternion.identity).GetComponent<Bullet>();
                 b.transform.forward = new Vector3(0.2f, 2);
+
+                b = Instantiate(prefabBullet, transform.position + new Vector3(-4, -1, 0), Quaternion.identity).GetComponent<Bullet>();
+                b.transform.forward = new Vector3(-0.8f- cosy, -2);
+
+                b = Instantiate(prefabBullet, transform.position + new Vector3(-4, +1, 0), Quaternion.identity).GetComponent<Bullet>();
+                b.transform.forward = new Vector3(-0.8f - cosy, 2);
 
                 /*b = Instantiate(prefabBullet, transform.position + new Vector3(1, 0, 0), Quaternion.identity).GetComponent<Bullet>();
                 b.transform.forward = new Vector3(1, -cosy);
